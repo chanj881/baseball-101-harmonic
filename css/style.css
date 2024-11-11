@@ -215,6 +215,29 @@ img {
   height: auto;
 }
 
+.image-container img {
+
+  transition: transform 0.3s ease-in-out;
+
+}
+
+.image-container:hover img {
+
+  transform: scale(1.1); /* Increases size by 10% */
+
+}
+
+.zoom {
+padding: 50px
+background-color: green
+transition: transform .2s
+width: 200px
+height: 200px
+margin: 0 auto
+}
+
+.zoom:hover * transform: scale(1.5)
+
 .primary {
   background: var(--primary);
 }

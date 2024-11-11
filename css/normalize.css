@@ -148,6 +148,17 @@ sup {
 img {
   border-style: none;
 }
+.image-container img {
+
+  transition: transform 0.3s ease-in-out;
+
+}
+
+.image-container:hover img {
+
+  transform: scale(1.1); /* Increases size by 10% */
+
+}
 
 /* Forms
    ========================================================================== */
