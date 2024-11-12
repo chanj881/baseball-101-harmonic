@@ -141,6 +141,7 @@ body {
   background-color: var(--bg);;
 }
 
+
 main {
   width: 80vw;
   margin: 0 auto;
@@ -227,16 +228,6 @@ img {
 
 }
 
-.zoom {
-padding: 50px
-background-color: green
-transition: transform .2s
-width: 200px
-height: 200px
-margin: 0 auto
-}
-
-.zoom:hover * transform: scale(1.5)
 
 .primary {
   background: var(--primary);

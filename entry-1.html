@@ -6,6 +6,7 @@
   –––––––––––––––––––––––––––––––––––––––––––––––––– -->
   <meta charset="utf-8">
   <title>Strike Zone</title>
+  <link rel="icon" type="image/x-icon" href="images/faviconf.png">
   <meta name="description" content="">
   <meta name="author" content="">
 
@@ -21,9 +22,11 @@
     h1{font-family: "owners-xwide", sans-serif;
 font-weight: 700;
 font-style: normal;}
-    h3{font-family: "owners-wide", sans-serif;
-font-weight: 400;
-font-style: normal;}
+h3{font-family: "span", serif;
+font-weight: 300;
+font-style: italic;}
+a{font-family: "owners-xwide", sans-serif;
+font-weight: 400}
 </style>
 
   <!-- CSS
@@ -39,12 +42,27 @@ font-style: normal;}
 
 </head>
 <body>
-  <header>
-    <nav>
-      <a href="index.html">Home</a>
-      <a href="quiz.html">Quiz Me</a>
-    </nav>
-  </header>
+  <div class="navbar">
+    <a href="index.html">⚾︎</a>
+    <div class="dropdown">
+      <button class="dropbtn">✦
+        <i class="fa fa-caret-down"></i>
+      </button>
+      <div class="dropdown-content">
+        <a href="#">Lions 🦁</a>
+        <a href="#">Tigers 🐯</a>
+        <a href="#">Dolphins 🐬</a>
+        <a href="#">Bears 🐾</a>
+      </div>
+    </div>
+    <a href="quiz.html">Quiz</a>
+  </div>
+  <div align="right">
+  <a href="entry-2.html">
+    <button>Next Card</button>
+  </a>
+</div>
+
   <main>
  <h1>STRIKE ZONE</h1>
  <h3>What is a strike zone?</h3>
