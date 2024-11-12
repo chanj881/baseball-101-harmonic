@@ -134,11 +134,7 @@ html {
 }
 
 /* grids to 3 columns above mobile sizes */
-@media (max-width: 750px) {
-  .grid-container{
-    grid-template-columns: 1fr;
-  }
-}
+
 @media (min-width: 600px) {
 	.grid-container {
 		grid-template-columns: repeat(3, 1fr);
