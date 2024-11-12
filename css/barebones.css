@@ -134,10 +134,9 @@ html {
 }
 
 /* grids to 3 columns above mobile sizes */
-@media (min-width: 600px) {
-	.grid-container {
+@media (min-width: 200px) {
+	.grid-container.col-3 {
 		grid-template-columns: repeat(3, 1fr);
-		padding: 10px 0;
 	}
 	
 	/* basic grids */
@@ -173,6 +172,8 @@ html {
   font-size: var(--base-font-size);
   scroll-behavior: smooth;
 }
+
+
 body {
   font-size: 1rem;		/* changed from 15px in orig skeleton */
   line-height: 1.6;
@@ -188,9 +189,9 @@ body {
 h1, h2, h3, h4, h5, h6 {
   margin-top: 0;
   margin-bottom: 1.125rem;}
-h1 { font-size: 9rem; line-height: 1.25;  letter-spacing: -.1rem;}
+h1 { font-size: 10vw; line-height: 1.25;  letter-spacing: -.1rem;}
 h2 { font-size: 3.6rem; line-height: 1.25; letter-spacing: -.1rem; }
-h3 { font-size: 3.2rem; line-height: 1.25;  letter-spacing: -.001rem; }
+h3 { font-size: 8vw; line-height: 1.25;  letter-spacing: -.001rem; }
 h4 { font-size: 2.4rem; line-height: 1.35; letter-spacing: -.008rem; }
 h5 { font-size: 1.8rem; line-height: 1.5;  letter-spacing: -.05rem; }
 h6 { font-size: 1.333rem; line-height: 1.6;  letter-spacing: 0; }
@@ -230,7 +231,7 @@ a:hover {
 
 a {
 
-    transition: transform 0.3s ease-in-out;
+    transition: all 0.5s ease;
   
   }
   
