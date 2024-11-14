@@ -1,28 +1,97 @@
-// Get the elements from the HTML
-const cityInput = document.getElementById('city');
+const quizContainer = document.getElementById('quiz');
+const resultsContainer = document.getElementById('results');
 const submitButton = document.getElementById('submit');
-const weatherInfoParagraph = document.getElementById('weather-info');
 
-// Add an event listener to the submit button
-submitButton.addEventListener('click', () => {
-  // Get the user's city input
-  const city = cityInput.value.trim();
+const myQuestions = [
+  {
+    question: "How many out counts are in each side of an inning?",
+    answers: {
+      a: "2",
+      b: "3",
+      c: "4"
+    },
+    correctAnswer: "b"
+  },
+  {
+    question: "Which pitcher position usually throws the last 1-2 innings to end the game?",
+    answers: {
+      a: "Starting Pitcher",
+      b: "Bullpen/Relief Pitcher",
+      c: "Closer"
+    },
+    correctAnswer: "c"
+  },
+  {
+    question: "What is it called when the batter runs all four bases after a hit?",
+    answers: {
+      a: "Inside the Park Home Run",
+      b: "Grand Slam",
+      c: "Home Run",
+    },
+    correctAnswer: "a"
+  },
+  {
+    question: "True or False? A double play is a major advantage for the defending team.",
+    answers: {
+      a: "TRUE",
+      b: "FASLSE",
+      c: "BOTH"
+    },
+    correctAnswer: "a"
+  },
+  {
+    question: "How many defense positions are in the outfield?",
+    answers: {
+      a: "1",
+      b: "2",
+      c: "3"
+    },
+    correctAnswer: "c"
+  },
+  {
+    question: "What are the maximum amount of points that can be scored from a home run?",
+    answers: {
+      a: "3",
+      b: "4",
+      c: "5"
+    },
+    correctAnswer: "b"
+  },
+];
 
-  // Define weather data (this can be replaced with API calls)
-  const weatherData = {
-    'New York': 'Sunny, 75°F',
-    'Los Angeles': 'Partly Cloudy, 85°F',
-    'Chicago': 'Rainy, 60°F',
-    'Charlotte': 'Sunny, 16°C'
-    // Add more cities as needed
-  };
+function buildQuiz(){
+  // variable to store the HTML output
+  const output = [];
 
-  // Check if the city exists in the weather data
-  if (city in weatherData) {
-    // Display the weather information
-    weatherInfoParagraph.textContent = `The weather in ${city} is: ${weatherData[city]}`;
-  } else {
-    // Display an error message
-    weatherInfoParagraph.textContent = `Sorry, we don't have weather information for ${city}.`;
-  }
-});
+  // for each question...
+  myQuestions.forEach(
+    (currentQuestion, questionNumber) => {
+
+      // variable to store the list of possible answers
+      const answers = [];
+
+      // and for each available answer...
+      for(letter in currentQuestion.answers){
+
+        // ...add an HTML radio button
+        answers.push(
+          `<label>
+            <input type="radio" name="question${questionNumber}" value="${letter}">
+            ${letter} :
+            ${currentQuestion.answers[letter]}
+          </label>`
+        );
+      }
+
+      // add this question and its answers to the output
+      output.push(
+        `<div class="question"> ${currentQuestion.question} </div>
+        <div class="answers"> ${answers.join('')} </div>`
+      );
+    }
+  );
+
+  // finally combine our output list into one string of HTML and put it on the page
+  quizContainer.innerHTML = output.join('');
+}
+

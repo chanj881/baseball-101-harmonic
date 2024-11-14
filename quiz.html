@@ -24,7 +24,7 @@
     h1{font-family: "owners-xwide", sans-serif;
 font-weight: 700;
 font-style: normal;}
-h3{font-family: "span", serif;
+h4{font-family: "span", serif;
 font-weight: 300;
 font-style: italic;}
 a{font-family: "owners-xwide", sans-serif;
@@ -62,18 +62,139 @@ font-weight: 400}
   </div>
   <main>
 
+
 <head>
   <title>Quiz yourself!</title>
 </head>
 <body>
   <h1>Quiz yourself! ☺︎</h1>
-  <p>Enter a city:</p>
-  <input type="text" id="city" />
-  <button id="submit">Get Weather</button>
-  <p id="weather-info"></p>
+  <h4>Test your knowledge on the basic rules of baseball after reviewing our trading card series for beginners. Good luck! ✩</h4>
 
-  <script src="js/user-input.js"></script>
-</body>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Multiple Choice Quiz</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+      }
+      .quiz-container {
+        max-width: 600px;
+        margin: 0 auto;
+        padding: 20px;
+        border: 1px solid #ddd;
+        background-color: #f9f9f9;
+        border-radius: 8px;
+      }
+      .question {
+        font-size: 20px;
+        margin-bottom: 20px;
+      }
+      .options {
+        list-style: none;
+        padding: 0;
+      }
+      .options li {
+        margin: 10px 0;
+      }
+      .btn {
+        padding: 10px 20px;
+        background-color: #4CAF50;
+        color: white;
+        border: none;
+        cursor: pointer;
+      }
+      .btn:hover {
+        background-color: #45a049;
+      }
+      .result {
+        font-size: 20px;
+        margin-top: 20px;
+        font-weight: bold;
+      }
+    </style>
+  </head>
+  <body>
+  
+    <div class="quiz-container">
+      <div id="quiz">
+        <div id="question-container">
+          <!-- Question and options will be dynamically inserted here -->
+        </div>
+        <button class="btn" onclick="nextQuestion()">Next</button>
+        <div id="result" class="result"></div>
+      </div>
+    </div>
+
+    <script>
+      // List of questions and answers
+      const quizData = [
+        {
+          question: "What is the capital of France?",
+          options: ["Berlin", "Madrid", "Paris", "Rome"],
+          correct: "Paris"
+        },
+        {
+          question: "Which planet is known as the Red Planet?",
+          options: ["Earth", "Mars", "Jupiter", "Venus"],
+          correct: "Mars"
+        },
+        {
+          question: "Who wrote 'Hamlet'?",
+          options: ["Shakespeare", "Dickens", "Hemingway", "Austen"],
+          correct: "Shakespeare"
+        }
+      ];
+  
+      let currentQuestionIndex = 0;
+      let score = 0;
+  
+      // Function to display the current question
+      function displayQuestion() {
+        const questionContainer = document.getElementById('question-container');
+        const question = quizData[currentQuestionIndex];
+  
+        questionContainer.innerHTML = `
+          <div class="question">${question.question}</div>
+          <ul class="options">
+            ${question.options.map(option => `<li><input type="radio" name="answer" value="${option}"> ${option}</li>`).join('')}
+          </ul>
+        `;
+      }
+  
+      // Function to move to the next question
+      function nextQuestion() {
+        const selectedOption = document.querySelector('input[name="answer"]:checked');
+        
+        if (selectedOption) {
+          const answer = selectedOption.value;
+          if (answer === quizData[currentQuestionIndex].correct) {
+            score++;
+          }
+        }
+  
+        currentQuestionIndex++;
+  
+        if (currentQuestionIndex < quizData.length) {
+          displayQuestion();
+        } else {
+          showResult();
+        }
+      }
+  
+      // Function to show the result
+      function showResult() {
+        const result = document.getElementById('result');
+        result.innerHTML = `You scored ${score} out of ${quizData.length}`;
+        document.getElementById('quiz').style.display = 'none'; // Hide the quiz
+      }
+  
+      // Initialize the quiz
+      displayQuestion();
+    </script>
+  
+  </body>
+  </html>
 
  
 
